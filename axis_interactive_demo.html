@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Flexbox Axes Explorer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    /* Base box styles from template */
+    .box {
+      color: white;
+      font-size: 50px;
+      text-align: center;
+      text-shadow: 2px 2px rgba(0,0,0,0.3); 
+      padding: 10px;
+      width: 80px;
+      height: 80px;
+      flex: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box1 { background-color:#1abc9c;}
+    .box2 { background:#3498db;}
+    .box3 { background:#9b59b6;}
+    .box4 { background:#34495e;}
+    .box5 { background:#f1c40f;}
+
+    /* Container */
+    .container {
+      display: flex;
+      border: 5px solid #2c3e50;
+      height: 400px;
+      width: 600px;
+      margin: 20px auto;
+      position: relative;
+      background: white;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    /* Control Panel */
+    .controls {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .control-group {
+      margin: 15px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+
+    .control-group h4 {
+      margin: 0 0 10px 0;
+      color: #2c3e50;
+    }
+
+    label {
+      display: inline-block;
+      margin: 5px 15px 5px 0;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    /* Axis indicators */
+    .axis-indicator {
+      position: absolute;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      color: white;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .main-axis {
+      background: #e74c3c;
+    }
+
+    .cross-axis {
+      background: #2ecc71;
+    }
+
+    /* Current status display */
+    .status {
+      background: #3498db;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 600px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .explanation {
+      background: #fff3cd;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 8px;
+      border: 2px solid #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="text-align: center; color: #2c3e50;">🧭 Interactive Flexbox Axes Explorer</h1>
+
+<div class="status" id="status">
+  Current: flex-direction: row | Main Axis: Horizontal → | Cross Axis: Vertical ↓
+</div>
+
+<div class="container" id="container">
+  <div class="axis-indicator main-axis" id="mainAxisLabel">MAIN AXIS →</div>
+  <div class="axis-indicator cross-axis" id="crossAxisLabel">CROSS AXIS ↓</div>
+  
+  <div class="box box1">1</div>
+  <div class="box box2">2</div>
+  <div class="box box3">3</div>
+  <div class="box box4">4</div>
+  <div class="box box5">5</div>
+</div>
+
+<div class="controls">
+  <div class="control-group">
+    <h4>🔄 Flex Direction (Changes the axes!)</h4>
+    <label><input type="radio" name="direction" value="row" checked> row (main axis →)</label>
+    <label><input type="radio" name="direction" value="column"> column (main axis ↓)</label>
+    <label><input type="radio" name="direction" value="row-reverse"> row-reverse (main axis ←)</label>
+    <label><input type="radio" name="direction" value="column-reverse"> column-reverse (main axis ↑)</label>
+  </div>
+
+  <div class="control-group">
+    <h4>🎯 Justify Content (Controls MAIN axis)</h4>
+    <label><input type="radio" name="justify" value="flex-start" checked> flex-start</label>
+    <label><input type="radio" name="justify" value="center"> center</label>
+    <label><input type="radio" name="justify" value="flex-end"> flex-end</label>
+    <label><input type="radio" name="justify" value="space-between"> space-between</label>
+    <label><input type="radio" name="justify" value="space-around"> space-around</label>
+  </div>
+
+  <div class="control-group">
+    <h4>🎯 Align Items (Controls CROSS axis)</h4>
+    <label><input type="radio" name="align" value="stretch" checked> stretch</label>
+    <label><input type="radio" name="align" value="flex-start"> flex-start</label>
+    <label><input type="radio" name="align" value="center"> center</label>
+    <label><input type="radio" name="align" value="flex-end"> flex-end</label>
+  </div>
+</div>
+
+<div class="explanation">
+  <h3>🎓 What You're Learning:</h3>
+  <p><strong>The Key Insight:</strong> justify-content and align-items don't control "horizontal" and "vertical" - they control the main axis and cross axis!</p>
+  <ul>
+    <li><strong>Main Axis:</strong> The direction items flow (set by flex-direction)</li>
+    <li><strong>Cross Axis:</strong> Perpendicular to the main axis</li>
+    <li><strong>justify-content:</strong> Always positions along the main axis</li>
+    <li><strong>align-items:</strong> Always positions along the cross axis</li>
+  </ul>
+  <p><strong>Try This:</strong> Change flex-direction and watch how the same justify-content values produce completely different results!</p>
+</div>
+
+<script>
+  const container = document.getElementById('container');
+  const status = document.getElementById('status');
+  const mainAxisLabel = document.getElementById('mainAxisLabel');
+  const crossAxisLabel = document.getElementById('crossAxisLabel');
+
+  // Get all radio buttons
+  const directionRadios = document.querySelectorAll('input[name="direction"]');
+  const justifyRadios = document.querySelectorAll('input[name="justify"]');
+  const alignRadios = document.querySelectorAll('input[name="align"]');
+
+  function updateLayout() {
+    const direction = document.querySelector('input[name="direction"]:checked').value;
+    const justify = document.querySelector('input[name="justify"]:checked').value;
+    const align = document.querySelector('input[name="align"]:checked').value;
+
+    // Apply styles
+    container.style.flexDirection = direction;
+    container.style.justifyContent = justify;
+    container.style.alignItems = align;
+
+    // Update axis labels and positions
+    updateAxisLabels(direction);
+    
+    // Update status
+    updateStatus(direction, justify, align);
+  }
+
+  function updateAxisLabels(direction) {
+    // Reset positions
+    mainAxisLabel.style.top = '';
+    mainAxisLabel.style.left = '';
+    mainAxisLabel.style.right = '';
+    mainAxisLabel.style.bottom = '';
+    crossAxisLabel.style.top = '';
+    crossAxisLabel.style.left = '';
+    crossAxisLabel.style.right = '';
+    crossAxisLabel.style.bottom = '';
+
+    switch(direction) {
+      case 'row':
+        mainAxisLabel.textContent = 'MAIN AXIS →';
+        mainAxisLabel.style.top = '-40px';
+        mainAxisLabel.style.left = '50%';
+        mainAxisLabel.style.transform = 'translateX(-50%)';
+        
+        crossAxisLabel.textContent = 'CROSS AXIS ↓';
+        crossAxisLabel.style.right = '-140px';
+        crossAxisLabel.style.top = '50%';
+        crossAxisLabel.style.transform = 'translateY(-50%) rotate(90deg)';
+        break;
+        
+      case 'row-reverse':
+        mainAxisLabel.textContent = 'MAIN AXIS ←';
+        mainAxisLabel.style.top = '-40px';
+        mainAxisLabel.style.left = '50%';
+        mainAxisLabel.style.transform = 'translateX(-50%)';
+        
+        crossAxisLabel.textContent = 'CROSS AXIS ↓';
+        crossAxisLabel.style.right = '-140px';
+        crossAxisLabel.style.top = '50%';
+        crossAxisLabel.style.transform = 'translateY(-50%) rotate(90deg)';
+        break;
+        
+      case 'column':
+        mainAxisLabel.textContent = 'MAIN AXIS ↓';
+        mainAxisLabel.style.left = '-130px';
+        mainAxisLabel.style.top = '50%';
+        mainAxisLabel.style.transform = 'translateY(-50%) rotate(-90deg)';
+        
+        crossAxisLabel.textContent = 'CROSS AXIS →';
+        crossAxisLabel.style.bottom = '-40px';
+        crossAxisLabel.style.left = '50%';
+        crossAxisLabel.style.transform = 'translateX(-50%)';
+        break;
+        
+      case 'column-reverse':
+        mainAxisLabel.textContent = 'MAIN AXIS ↑';
+        mainAxisLabel.style.left = '-130px';
+        mainAxisLabel.style.top = '50%';
+        mainAxisLabel.style.transform = 'translateY(-50%) rotate(-90deg)';
+        
+        crossAxisLabel.textContent = 'CROSS AXIS →';
+        crossAxisLabel.style.bottom = '-40px';
+        crossAxisLabel.style.left = '50%';
+        crossAxisLabel.style.transform = 'translateX(-50%)';
+        break;
+    }
+  }
+
+  function updateStatus(direction, justify, align) {
+    let mainAxisDirection, crossAxisDirection;
+    
+    switch(direction) {
+      case 'row':
+        mainAxisDirection = 'Horizontal →';
+        crossAxisDirection = 'Vertical ↓';
+        break;
+      case 'row-reverse':
+        mainAxisDirection = 'Horizontal ←';
+        crossAxisDirection = 'Vertical ↓';
+        break;
+      case 'column':
+        mainAxisDirection = 'Vertical ↓';
+        crossAxisDirection = 'Horizontal →';
+        break;
+      case 'column-reverse':
+        mainAxisDirection = 'Vertical ↑';
+        crossAxisDirection = 'Horizontal →';
+        break;
+    }
+
+    status.innerHTML = `
+      flex-direction: ${direction} | Main Axis: ${mainAxisDirection} | Cross Axis: ${crossAxisDirection}<br>
+      <small>justify-content: ${justify} (main axis) | align-items: ${align} (cross axis)</small>
+    `;
+  }
+
+  // Add event listeners
+  directionRadios.forEach(radio => radio.addEventListener('change', updateLayout));
+  justifyRadios.forEach(radio => radio.addEventListener('change', updateLayout));
+  alignRadios.forEach(radio => radio.addEventListener('change', updateLayout));
+
+  // Initialize
+  updateLayout();
+</script>
+
+</body>
+</html>
