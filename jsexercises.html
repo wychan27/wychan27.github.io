@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics Exercises</title>
+  <style>
+    code {
+      color:blue;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 20px;
+    }
+
+    ol li {
+      margin-bottom: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Basics Exercises</h2>
+  <ol>
+    <li>Use <code>alert(...);</code> to display 'Good morning!' in a popup.</li>
+
+    <li>Display your name in a popup</li>
+
+    <li>Using <code>document.body.innerHTML = ...;</code> to display 'Have a nice day!' on a web page</li>
+
+    <li>Generate a random number in your <code>console.log</code> using the <code>Math.random();</code> function</li>
+
+    <li>Using concatenation and <b>interpolation</b>, create the text: 'Total cost: $____' (if the total cost is 1 coffee ($5) and 1 bagel ($3)) - answer will be in console.log</li>
+
+    <li>Now display your result from Question 5 in a popup.  Remember which function to use.</li>
+
+    <li>Using the <code>&lt;script&gt;</code> element, create a variable called 'name' and save your name in that variable.  Then create a popup with the message 'My name is: _____" using that name variable and interpolation</li>
+
+    <li>At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each), 1 berry summer drink ($9).  Calculate the cost and save it in a variable called, cost.</li>
+
+    <li>Following up on Question 8, now display the total cost of food in a popup using the cost variable and interpolation</li>
+
+    <li>
+      Create a separate <b>cart-quantity.html</b> file and on this web page, 
+      create the following buttons: <br>
+      <button>Show quantity</button>
+      <button>Add to cart</button>
+      <button>+2</button>
+      <button>+3</button>
+      <button>Reset cart</button>
+      <br>
+      Using the "+=" math operators, have the quantities appear in the <code>console.log</code>.  
+      <br>
+      Remember to create an initial variable called, <code>let = cartQuantity</code> (or whatever variable name you'd like) in the <code>&lt;script&gt;</code> element tag.
+    </li>
+    <li>
+      Continuing with Question 10, add 2 more buttons, '-2' and '-3' which decreases the quantities
+      <br>
+      <i><a href="cart-quantity.html">Hints: but try it on your own first!</a></i>
+    </li>
+  </ol>
+  
+<hr>
+
+<h2>Calculator Project</h2>
+<p>
+  <img src="calculator.png" width="120px;" height="220px;" alt="">
+</p>
+<ol>
+  <li>
+    Create <b>calculator.html</b> file.
+  </li>
+  <li>
+    Create these 5 buttons:
+    <br>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>+</button>
+    <button>=</button>
+  </li>
+  <li>
+    Create a <code>&lt;script&gt;</code>, create a variable called, <code>calculation</code>, and save an empty string inside:  <code>let calculation = '';</code>
+    <br>
+    (This variable will store the calcualtion(s) '1 + 2' or '3 + 20 + 5').
+  </li>
+  <li>
+    When we click the '1' button:
+    <ul>
+      <li>Add the string '1' to the <code>calculation</code> variable:  <code>calculation += '1'; </code></li>
+      <li>Display the calculation in the console: <code>console.log(calculation);</code></li>
+    </ul>
+  </li>
+  <li>
+    Do the same for the '2', '3', and '+' buttons.
+  </li>
+  <li>
+    When you click on the <b>'='</b> button, use the code: <code>eval(calculation);</code>
+    <br>
+    <i>(<code>eval(...);</code> converts the calculation string into actual math)</i>
+    <br>
+    <ul>
+      <li>
+        Save the result back in 'calculation': <code>calculation = eval(calculation);</code>
+      </li>
+      <li>Display the result in the console: <code>console.log(calculation);</code></li>
+    </ul>
+  </li>
+  <li>
+    Create the rest of the buttons as shown in the image above.
+  </li>
+</ol>
+
+  
+</body>
+</html>
