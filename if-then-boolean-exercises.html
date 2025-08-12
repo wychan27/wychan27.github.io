@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>If-Then-Boolean Exercises</title>
+
+  <style>
+    code {
+      color:blue;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 20px;
+    }
+
+    ol li {
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <h2>Boolean and If-Statement Exercises</h2>
+  <p>
+    <i>Create separate HTML file for these exercises.</i>
+    <br>
+    <i>Use the <code>&lt;script&gt;</code> tag</i>
+  </p>
+  <ol>
+    <li>
+      Create a variable called <b>'hour'</b> and save the current hour of the day (use the 24-hour format and save it as a number between 0 and 23).
+      <ul>
+        <li>
+          If hour is between 6 and 12, display 'Good morning!' in the <code>console</code>
+        </li>
+        <li>
+          If hour is between 13 and 17, display 'Good afternoon!' in the <code>console</code>
+        </li>
+        <li>
+          Otherwise, display 'Good night1' in the <code>console</code>
+        </li>
+        <li>Change the value in the <b>'hour'</b> variable to make it display different messages.</li>
+      </ul>
+    </li>
+
+    <li>
+      Continuing with Exercise 1 above, create variable called <b>'name</b> and save your name inside (as a string).  
+      <br>
+      Update the <b>if-statement</b> to display your name in the message.  For example: <b>'Good morning <code>${name}</code>!'</b>
+    </li>
+
+    <li>
+      Imagine Harry Potter World in Florida has a discount for children (6 years and younger) or seniors (65 years and older).
+      <ul>
+        <li>
+          Create a variable <b>'age'</b> and save a person's age inside.
+        </li>
+        <li>
+          Create an <b>if-statement</b> that checks if the person qualifies for a discount.
+        </li>
+        <li>
+          If they do, display 'Discount' in the <code>console</code>
+        </li>
+        <li>
+          Otherwise, display 'No discount' in the <code>console</code>
+        </li>
+        <li>
+          Try changing the <b>'age'</b> variable to display different messages
+        </li>
+      </ul>
+      <i>Note: try to use the <b>|| operator</b> in your solution</i>
+    </li>
+
+    <li>
+      Continuing from Exercise #3 (above), assume the discount is only available if it is NOT a holiday.
+      <ul>
+        <li>Create a variable: <code>const isHoliday = true;</code></li>
+        <li>Update the code so that in order to get a discount, people must meet the age requirement <b>AND</b> it is also not a holiday.</li>
+        <li><i>Note:  <code>&&</code> has a higher priority than <code>||</code> so you may need to use <code>brackets ()</code> to control which code gets done first</i></li>
+        <li>
+          Try changing the value of <code>isHoliday</code> to display different messages
+        </li>
+      </ul>
+      <i><a href="harrypotterexercise.html">Hints - but try it on your own first!</a></i>
+    </li>
+
+  </ol>
+
+  <hr>
+
+  <h2>Coin-Flip Game</h2>
+  <ol>
+    <li>
+      Create a <b>coin-flip.html</b> file
+    </li>
+    <li>
+      In the <code>&lt;script&gt;</code> tag, generate a random number with <code>Math.random();</code> and save it in a variable
+    </li>
+    <li>
+      Create an <b>if-statement</b> and check:
+      <ul>
+        <li>
+          if the number is less than 0.5, then display 'heads' in the <code>console</code>
+        </li>
+        <li>
+          Else display 'tails' in the <code>console</code>
+        </li>
+      </ul>
+      <i><a href="coin-flip.html">Hint - but try it on your own first!</a></i>
+    </li>
+    <li>
+      Instead of displaying 'heads' or 'tails' in the <code>console</code>, save the result in a <b>variable</b> called, '<code>result</code>'
+    </li>
+    <li>Let's say we are trying to guess the result.  Create a variable called, '<code>guess</code>' and save your guess ('heads' or 'tails').
+      <ul>
+        <li>
+          If your guess matches the result, display 'You win!' in the <code>console</code>
+        </li>
+        <li>
+          If your guess does not match the result, display 'You lose!' in the <code>console</code>
+        </li>
+      </ul>
+      <i><a href="coin-flip-2.html">Hint - but try it on your own first!</a></i>
+    </li>
+  </ol>
+
+  <hr>
+
+  <h2>CHALLENGE: <a href="rock-paper-scissors.html">Rock Paper Scissors Game</a></h2>
+  <ul>
+    <li>
+      Look at the code from the link above and try to understand the logic.
+    </li>
+    <li>
+      Try to recreate it yourself
+    </li>
+
+  </ul>
+  
+</body>
+</html>
