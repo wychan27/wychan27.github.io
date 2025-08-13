@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+    <style>
+        /* Basic styling for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Styling for the main container */
+        .container {
+            background-color: #fff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the heading */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the result paragraph */
+        #result {
+            font-size: 2em;
+            font-weight: bold;
+            color: #555;
+            min-height: 1.5em; /* Ensures the space doesn't collapse */
+            margin-bottom: 10px;
+        }
+
+        /* Styling for the random number paragraph */
+        #randomNumber {
+            font-family: "Courier New", Courier, monospace;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the flip button */
+        #flipButton {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #flipButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Coin Flip</h1>
+        <p id="result"></p>
+        <p id="randomNumber"></p>
+        <button id="flipButton">Flip Coin</button>
+    </div>
+
+    <script>
+        // Get the button and the paragraph elements from the HTML
+        const flipButton = document.getElementById('flipButton');
+        const resultParagraph = document.getElementById('result');
+        const randomNumberParagraph = document.getElementById('randomNumber'); // Get the new paragraph element
+
+        // Add an event listener to the button. This function will run when the button is clicked.
+        flipButton.addEventListener('click', () => {
+            // Step 1: Create a variable called 'result'
+            // Step 2: Use Math.random() to generate a random number between 0 and 1
+            const result = Math.random();
+
+            // Display the random number on the screen
+            randomNumberParagraph.textContent = `Random Number: ${result}`;
+
+            // Step 3: Use an if statement to check if 'result' is greater than 0.5
+            if (result > 0.5) {
+                // If it is, set the text of the paragraph to "Heads!"
+                resultParagraph.textContent = "Heads!";
+            } else { // Step 4: Use an else statement for the other case
+                // If the number is not greater than 0.5, set the text to "Tails!"
+                resultParagraph.textContent = "Tails!";
+            }
+        });
+    </script>
+</body>
+</html>
