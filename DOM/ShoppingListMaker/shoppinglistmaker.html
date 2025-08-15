@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 300px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        li {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <input type="text" id="item-input" placeholder="Enter an item">
+    <button id="add-btn">Add Item</button>
+
+    <ul id="shopping-list">
+    </ul>
+
+    <script src="shoppinglistmaker.js"></script>
+</body>
+</html>
