@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+
+</head>
+<body>
+
+
+        <h1>Guess the Number!</h1>
+        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        <input type="number" id="guessInput" placeholder="Enter your guess">
+        <button id="submitBtn">Guess</button>
+        <p id="message"></p>
+
+
+    <script>
+        // STEP 1: Generate the secret number
+        // Math.random() gives a number between 0 (inclusive) and 1 (exclusive).
+        // Multiplying by 100 gives a number from 0 to 99.99...
+        // Math.floor() rounds it down to the nearest whole number (0-99).
+        // Adding 1 makes the range 1 to 100.
+        const secretNumber = Math.floor(Math.random() * 100) + 1;
+        let guesses = 0; // Initialize a counter for guesses
+
+        // STEP 2: Get references to the HTML elements
+        // This is how we connect our JavaScript to the parts of our web page.
+        const guessInput = document.getElementById('guessInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDisplay = document.getElementById('message');
+
+        // STEP 3: Add an event listener to the button
+        // When the button is clicked, the function inside will run.
+        submitBtn.addEventListener('click', function() {
+            // Get the user's guess from the input box.
+            // The `+` converts the text from the input into a number.
+            const userGuess = +guessInput.value;
+            guesses++; // Increment the guess counter
+
+            // Check if the input is a valid number
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                messageDisplay.textContent = 'Please enter a valid number between 1 and 100.';
+                return; // Stop the function if the input is invalid
+            }
+
+            // The if-else if-else logic checks the guess, just like you described.
+            // The "loop" happens each time this function is run after a button click.
+            if (userGuess < secretNumber) {
+                messageDisplay.textContent = 'Too low! Guess again.';
+                guessInput.value = ''; // Clear the input for the next guess
+            } else if (userGuess > secretNumber) {
+                messageDisplay.textContent = 'Too high! Guess again.';
+                guessInput.value = ''; // Clear the input for the next guess
+            } else {
+                // This block runs only when the guess is correct!
+                messageDisplay.textContent = `You won! The number was ${secretNumber}! It took you ${guesses} guesses.`;
+                
+                // Disable the input and button to end the game
+                guessInput.disabled = true;
+                submitBtn.disabled = true;
+            }
+        });
+
+        // OPTIONAL: Allow the user to press 'Enter' key to submit their guess
+        guessInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                submitBtn.click();
+            }
+        });
+
+    </script>
+</body>
+</html>
